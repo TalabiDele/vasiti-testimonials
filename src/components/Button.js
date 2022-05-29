@@ -24,7 +24,7 @@ export const BtnSubscribe = styled.button`
   border: none;
   cursor: pointer;
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     right: 3rem;
   }
 `;
@@ -47,7 +47,7 @@ export const FormBtn = styled.div`
   right: 0rem;
   left: 16rem;
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     left: 0rem;
   }
 `;
@@ -66,7 +66,7 @@ export const Finish = styled.div`
   padding: 2rem 0rem;
   cursor: pointer;
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     padding: 1rem 0rem;
   }
 `;
