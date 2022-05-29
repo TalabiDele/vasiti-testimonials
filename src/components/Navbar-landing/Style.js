@@ -23,7 +23,7 @@ export const Container = styled.div`
       }
     }
 
-    @media (max-width: 475px) {
+    @media (max-width: 600px) {
       ul {
         display: none;
       }

@@ -47,7 +47,7 @@ export const Container = styled.div`
     justify-items: center;
   }
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     div.container {
       grid-template-columns: repeat(2, 1fr);
       justify-items: normal;

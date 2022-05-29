@@ -18,7 +18,7 @@ export const Container = styled.div`
     font-size: 13px;
   }
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     display: none;
   }
 `;

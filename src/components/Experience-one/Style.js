@@ -63,7 +63,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     div.container {
       flex-direction: column-reverse;
       width: 100%;

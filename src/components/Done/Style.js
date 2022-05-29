@@ -214,7 +214,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 475px) {
+  @media (max-width: 600px) {
     h1 {
       width: 80%;
     }
