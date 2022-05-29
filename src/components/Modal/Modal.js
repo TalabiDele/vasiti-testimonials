@@ -1,8 +1,7 @@
 import { React, useState } from "react";
-import { Container, Wrapper } from "./Style";
+import { Container } from "./Style";
 import { FormBtn } from "../Button";
 import { GrAttachment } from "react-icons/gr";
-import DoneModal from "../Done/DoneModal";
 import AuthContext from "../ModalContext";
 import { useContext } from "react";
 
@@ -12,10 +11,6 @@ const Modal = () => {
   const [isFile, setIsFile] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [nameError, setNameError] = useState(false);
-  const [lastError, setLastError] = useState(false);
-  const [messageError, setMessageError] = useState(false);
-  const [message, setMessage] = useState(false);
   const [isVendor, setIsVendor] = useState(false);
   const [isVendorChecked, setIsVendorChecked] = useState(false);
   const [isCustomerChecked, setIsCustomerChecked] = useState(false);
@@ -26,6 +21,8 @@ const Modal = () => {
     setSelectedFile(e.target.files[0]);
 
     setFileName(e.target.files[0].name);
+
+    console.log(selectedFile);
 
     setIsFile(true);
   };
@@ -58,9 +55,6 @@ const Modal = () => {
   return (
     <>
       <Container
-        nameError={nameError}
-        lastError={lastError}
-        messageError={messageError}
         modal={modal}
         // onClick={() => setModal(false)}
       >

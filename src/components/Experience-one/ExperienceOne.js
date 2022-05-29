@@ -1,12 +1,11 @@
-import { useState, useContext, React } from "react";
+import { useContext, React } from "react";
 import { Container } from "./Style";
 import img from "../imgs/black-beautiful-ladies-smiling.png";
 import vector from "../imgs/Vector-3.png";
-import Modal from "../Modal/Modal";
 import AuthContext from "../ModalContext";
 
 const ExperienceOne = () => {
-  const { modal, setModal } = useContext(AuthContext);
+  const { setModal } = useContext(AuthContext);
 
   const handleModal = () => {
     setModal(true);

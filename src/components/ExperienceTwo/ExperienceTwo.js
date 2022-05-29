@@ -6,7 +6,7 @@ import AuthContext from "../ModalContext";
 import imgTwo from "../imgs/Asset 1.png";
 
 const ExperienceTwo = () => {
-  const { modal, setModal } = useContext(AuthContext);
+  const { setModal } = useContext(AuthContext);
 
   const handleModal = () => {
     setModal(true);
