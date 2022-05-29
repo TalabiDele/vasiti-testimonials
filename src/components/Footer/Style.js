@@ -46,4 +46,23 @@ export const Container = styled.div`
     margin: auto;
     justify-items: center;
   }
+
+  @media (max-width: 475px) {
+    div.container {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: normal;
+      gap: 1rem;
+      width: 90%;
+      margin: auto;
+
+      .company,
+      .products,
+      .careers,
+      .touch,
+      .community {
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+    }
+  }
 `;

@@ -53,4 +53,42 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 475px) {
+    div.container {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+
+      div.hero_text {
+        margin: 0rem;
+        width: 80%;
+        margin: auto;
+
+        h1 {
+          font-size: 32px;
+          line-height: 40px;
+          width: 90%;
+          margin: auto;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 31px;
+          width: 90%;
+          margin: 3rem auto;
+        }
+      }
+
+      div.hero_img {
+        width: 100%;
+        justify-content: center;
+        background-size: cover;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 `;

@@ -36,10 +36,11 @@ export const Container = styled.div`
         letter-spacing: 0.05em;
         color: #535353;
         margin: 1rem auto 2rem auto;
+        text-transform: uppercase;
 
         span.customer {
           font-weight: 500;
-          font-size: 13px;
+          font-size: 15px;
           letter-spacing: 0.02em;
           color: #0d019a;
           background: #eef8ff;
@@ -49,7 +50,7 @@ export const Container = styled.div`
 
         span.vendor {
           font-weight: 500;
-          font-size: 13px;
+          font-size: 15px;
           letter-spacing: 0.02em;
           color: #049a01;
           background: #f0ffee;
@@ -65,6 +66,21 @@ export const Container = styled.div`
         margin: auto;
         letter-spacing: 0.02em;
         color: #474747;
+      }
+    }
+  }
+
+  @media (max-width: 475px) {
+    div.container {
+      grid-template-columns: repeat(1, 1fr);
+
+      div.card {
+        div.test {
+          width: 100%;
+        }
+        p.about {
+          width: 100%;
+        }
       }
     }
   }

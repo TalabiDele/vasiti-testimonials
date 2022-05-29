@@ -23,4 +23,50 @@ export const BtnSubscribe = styled.button`
   /* left: 0.5rem; */
   border: none;
   cursor: pointer;
+
+  @media (max-width: 475px) {
+    right: 3rem;
+  }
+`;
+
+export const FormBtn = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: #ff5c00;
+  border: none;
+  width: 18rem;
+  text-align: center;
+  box-shadow: 2px 8px 30px rgba(230, 83, 0, 0.18);
+  border-radius: 8px;
+  padding: 2rem 0rem;
+  cursor: pointer;
+  justify-self: flex-end;
+  position: relative;
+  right: 0rem;
+  left: 16rem;
+
+  @media (max-width: 475px) {
+    left: 0rem;
+  }
+`;
+
+export const Finish = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: #ff5c00;
+  border: none;
+  width: 18rem;
+  text-align: center;
+  box-shadow: 2px 8px 30px rgba(230, 83, 0, 0.18);
+  border-radius: 8px;
+  padding: 2rem 0rem;
+  cursor: pointer;
+
+  @media (max-width: 475px) {
+    padding: 1rem 0rem;
+  }
 `;

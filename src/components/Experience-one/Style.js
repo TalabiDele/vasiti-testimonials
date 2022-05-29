@@ -62,4 +62,45 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 475px) {
+    div.container {
+      flex-direction: column-reverse;
+      width: 100%;
+
+      div.image {
+        width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      div.texts {
+        width: 80%;
+        margin: auto;
+
+        h1 {
+          font-size: 24px;
+          line-height: 29px;
+          width: 100%;
+          margin: 0rem auto 1rem auto;
+        }
+
+        button {
+          /* width: 90%; */
+          margin: 0rem auto 2rem auto;
+        }
+
+        p {
+          width: 100%;
+          margin: 0rem auto 3rem auto;
+        }
+
+        div.vector {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
 `;

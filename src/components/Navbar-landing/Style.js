@@ -22,5 +22,11 @@ export const Container = styled.div`
         color: #242120;
       }
     }
+
+    @media (max-width: 475px) {
+      ul {
+        display: none;
+      }
+    }
   }
 `;

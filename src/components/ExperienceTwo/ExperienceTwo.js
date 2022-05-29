@@ -1,9 +1,17 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Container } from "./Style";
 import img from "../imgs/woman-shoppingbag-card 1.png";
 import vector from "../imgs/Vector-3.png";
+import AuthContext from "../ModalContext";
+import imgTwo from "../imgs/Asset 1.png";
 
 const ExperienceTwo = () => {
+  const { modal, setModal } = useContext(AuthContext);
+
+  const handleModal = () => {
+    setModal(true);
+  };
+
   return (
     <Container>
       <div className="container">
@@ -18,13 +26,14 @@ const ExperienceTwo = () => {
             very good customer service, an all round great experience. I would
             definately be coming back!
           </p>
-          <h3>SHARE YOUR OWN STORY</h3>
+          <h3 onClick={handleModal}>SHARE YOUR OWN STORY</h3>
           <div className="vector">
             <img src={vector} alt="underline" />
           </div>
         </div>
         <div className="image">
-          <img src={img} alt="Black-Ladies" />
+          <img src={img} alt="Black-Ladies" className="one" />
+          <img src={imgTwo} alt="" className="two" />
         </div>
       </div>
     </Container>

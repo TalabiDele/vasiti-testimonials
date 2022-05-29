@@ -21,6 +21,10 @@ export const Container = styled.div`
       background-position: top;
       display: flex;
       justify-content: center;
+
+      img.two {
+        display: none;
+      }
     }
 
     div.texts {
@@ -60,6 +64,47 @@ export const Container = styled.div`
 
       div.vector {
         margin-top: -10px;
+      }
+    }
+  }
+
+  @media (max-width: 475px) {
+    div.container {
+      flex-direction: column-reverse;
+      padding-bottom: 2rem;
+
+      div.image {
+        background-clip: content-box;
+        width: 80%;
+        background-size: contain;
+        position: relative;
+        background: none;
+        /* background-position: 0 -50px; */
+
+        img.two {
+          display: block;
+          width: 90%;
+        }
+
+        img.one {
+          display: none;
+        }
+      }
+
+      div.texts {
+        width: 100%;
+        margin: auto;
+        margin-top: 2rem;
+
+        h1 {
+          font-size: 24px;
+          width: 100%;
+        }
+
+        p {
+          font-size: 16px;
+          width: 100%;
+        }
       }
     }
   }

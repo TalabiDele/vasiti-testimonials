@@ -50,4 +50,44 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 475px) {
+    div.container {
+      display: flex;
+      flex-direction: column-reverse;
+      bottom: 0rem;
+      width: 95%;
+      padding-top: 3rem;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+
+      div.subscribe {
+        width: 100%;
+        margin: 0rem auto 2rem auto;
+
+        h1 {
+          font-size: 40px;
+          margin: auto;
+        }
+
+        p {
+          width: 80%;
+        }
+
+        input {
+          width: 90%;
+        }
+      }
+
+      div.image {
+        width: 100%;
+        margin: auto;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 `;
