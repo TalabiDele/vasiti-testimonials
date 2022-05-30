@@ -16,6 +16,13 @@ export const Container = styled.div`
       width: 100%;
       margin: 0rem auto 3rem auto;
 
+      img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
       div.test {
         width: 60%;
         margin: auto;

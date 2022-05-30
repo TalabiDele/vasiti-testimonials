@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Container } from "./Style";
 import temi from "../imgs/temi.png";
 import promise from "../imgs/promise.png";
@@ -6,11 +6,29 @@ import feyisola from "../imgs/feyisola.png";
 import Karen from "../imgs/karen.png";
 import uzo from "../imgs/uzo.png";
 import amos from "../imgs/amos.png";
+import AuthContext from "../ModalContext";
 
 const TestimonialsOne = () => {
+  const { testData } = useContext(AuthContext);
+
   return (
     <Container>
       <div className="container">
+        {testData.map((e) => (
+          <div className="card">
+            <div className="test">
+              <img src={e.image} alt="" />
+              <h2>{e.name}</h2>
+              <p className="details">
+                <span className={e.type ? "vendor" : "customer"}>
+                  {e.type ? "VENDOR" : "CUSTOMER"}
+                </span>
+              </p>
+            </div>
+            <p className="about">{e.message}</p>
+            {console.log(e.message)}
+          </div>
+        ))}
         <div className="card">
           <div className="test">
             <img src={temi} alt="Temi" />

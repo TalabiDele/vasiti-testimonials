@@ -9,16 +9,47 @@ const Modal = () => {
   const [fileName, setFileName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isFile, setIsFile] = useState(false);
+  const [image, setImage] = useState();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [message, setMessage] = useState("");
+  const [type, setType] = useState(null);
+  const [city, setCity] = useState("");
   const [isVendor, setIsVendor] = useState(false);
   const [isVendorChecked, setIsVendorChecked] = useState(false);
   const [isCustomerChecked, setIsCustomerChecked] = useState(false);
 
-  const { modal, setModal, done, setDone } = useContext(AuthContext);
+  const { modal, setModal, done, setDone, storeData } = useContext(AuthContext);
 
-  const handleFileChange = (e) => {
+  // let image = {};
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+        // reader.readAsDataURL(event.target.files[0]);
+      }
+    });
+  };
+
+  const handleFileChange = async (e) => {
     setSelectedFile(e.target.files[0]);
+
+    const base64 = await convertBase64(selectedFile);
+
+    // image = e.target.files[0];
+    setImage(base64);
+    console.log(base64);
 
     setFileName(e.target.files[0].name);
 
@@ -27,21 +58,32 @@ const Modal = () => {
     setIsFile(true);
   };
 
-  const handleSubmit = (e) => {
-    setModal(false);
-    setDone(true);
+  const handleSubmit = async (e) => {
+    if (firstName === "" || lastName === "" || message === "" || image === "") {
+      alert("Please enter all information");
+    } else {
+      storeData(image, firstName + " " + lastName, type, message, city);
+
+      setModal(false);
+      setDone(true);
+    }
 
     console.log("finished", done);
   };
 
-  const changeRadio = () => {
+  const changeRadio = (e) => {
     setIsVendorChecked(!isVendorChecked);
+
+    setType(true);
+
+    console.log(e.target.value);
 
     setIsVendor(true);
   };
 
-  const handleCustomer = () => {
+  const handleCustomer = (e) => {
     setIsCustomerChecked(!isCustomerChecked);
+    setType(false);
 
     setIsVendor(!isVendor);
   };
@@ -113,16 +155,23 @@ const Modal = () => {
               </div>
               <label htmlFor="story">Share your story</label>
               <br />
-              <textarea name="story" id="" cols="30" rows="5"></textarea>
+              <textarea
+                name="story"
+                id=""
+                cols="30"
+                rows="5"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
               <div className="interact">
                 <p>What did you interact with Vasiti as?</p>
                 <div className="radio">
                   <input
                     type="radio"
                     name="interact"
-                    value="customer"
+                    value="false"
                     checked={isCustomerChecked}
-                    onChange={() => handleCustomer()}
+                    onChange={(e) => handleCustomer(e)}
                     // onClick={() => changeRadio()}
                   />
                   <label htmlFor="customer">Customer</label>
@@ -131,23 +180,29 @@ const Modal = () => {
                   <input
                     type="radio"
                     name="interact"
-                    value="vendor"
+                    value="true"
                     checked={isVendorChecked}
-                    onChange={() => changeRadio()}
+                    onChange={(e) => changeRadio(e)}
                     // onClick={() => changeRadio()}
                   />
                   <label htmlFor="vendor">Vendor</label>
                 </div>
               </div>
-              {!isVendor && (
-                <>
-                  <label htmlFor="city">
-                    City or Higher Institution (for Students)
-                  </label>
-                  <br />
-                  <textarea name="city" id="city" cols="30" rows="1"></textarea>
-                </>
-              )}
+
+              <>
+                <label htmlFor="city">
+                  City or Higher Institution (for Students)
+                </label>
+                <br />
+                <textarea
+                  name="city"
+                  id="city"
+                  cols="30"
+                  rows="1"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                ></textarea>
+              </>
               <div className="botton">
                 <FormBtn onClick={() => handleSubmit()}>
                   Share your story!

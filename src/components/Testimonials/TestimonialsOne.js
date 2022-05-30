@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Container } from "./Style";
 import Ike from "../imgs/Ellipse 22.png";
 import fashina from "../imgs/fashina.png";
@@ -6,11 +6,36 @@ import fayemi from "../imgs/fayemi.png";
 import chisom from "../imgs/chisom.png";
 import adeyemi from "../imgs/adeyemi.png";
 import chidi from "../imgs/chidi.png";
+import AuthContext from "../ModalContext";
 
 const TestimonialsOne = () => {
+  const { testData } = useContext(AuthContext);
+
+  // console.log(testData);
+
   return (
     <Container>
       <div className="container">
+        {testData ? (
+          testData.map((e) => (
+            <div className="card" key={Math.random()}>
+              <div className="test">
+                <img src={e.image} alt="" />
+                <h2>{e.name}</h2>
+                <p className="details">
+                  IN {e.city}{" "}
+                  <span className={e.type ? "vendor" : "customer"}>
+                    {e.type ? "VENDOR" : "CUSTOMER"}
+                  </span>
+                </p>
+              </div>
+              <p className="about">{e.message}</p>
+              {console.log(e.message)}
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
         <div className="card">
           <div className="test">
             <img src={Ike} alt="Joseph-Ike" />
@@ -19,6 +44,7 @@ const TestimonialsOne = () => {
               In Ikeja <span className="customer">CUSTOMER</span>
             </p>
           </div>
+
           <p className="about">
             Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
             qui esse pariatur duis deserunt mollit dolore cillum minim tempor
