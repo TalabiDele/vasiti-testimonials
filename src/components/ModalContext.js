@@ -18,14 +18,12 @@ export const AuthProvider = ({ children }) => {
       ...testData,
       { image: image, name: name, type: type, message: message, city: city },
     ]);
-    console.log(testData);
   };
   const storeStudentData = (image, name, type, message, city) => {
     setStudentData([
       ...studentData,
       { image: image, name: name, type: type, message: message, city: city },
     ]);
-    console.log(studentData);
   };
 
   return (

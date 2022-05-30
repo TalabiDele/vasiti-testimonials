@@ -19,7 +19,7 @@ const Modal = () => {
   const [isVendorChecked, setIsVendorChecked] = useState(false);
   const [isCustomerChecked, setIsCustomerChecked] = useState(false);
 
-  const { modal, setModal, done, setDone, storeData } = useContext(AuthContext);
+  const { modal, setModal, setDone, storeData } = useContext(AuthContext);
 
   // let image = {};
 
@@ -49,11 +49,8 @@ const Modal = () => {
 
     // image = e.target.files[0];
     setImage(base64);
-    console.log(base64);
 
     setFileName(e.target.files[0].name);
-
-    console.log(selectedFile);
 
     setIsFile(true);
   };
@@ -67,16 +64,12 @@ const Modal = () => {
       setModal(false);
       setDone(true);
     }
-
-    console.log("finished", done);
   };
 
   const changeRadio = (e) => {
     setIsVendorChecked(!isVendorChecked);
 
     setType(true);
-
-    console.log(e.target.value);
 
     setIsVendor(true);
   };

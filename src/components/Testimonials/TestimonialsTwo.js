@@ -11,24 +11,26 @@ import AuthContext from "../ModalContext";
 const TestimonialsOne = () => {
   const { testData } = useContext(AuthContext);
 
+  const reversedArr = Array.from(testData).reverse();
+
   return (
     <Container>
       <div className="container">
-        {testData.map((e) => (
-          <div className="card">
-            <div className="test">
-              <img src={e.image} alt="" />
-              <h2>{e.name}</h2>
-              <p className="details">
-                <span className={e.type ? "vendor" : "customer"}>
-                  {e.type ? "VENDOR" : "CUSTOMER"}
-                </span>
-              </p>
+        {testData &&
+          reversedArr.map((e) => (
+            <div className="card" key={Math.random()}>
+              <div className="test">
+                <img src={e.image} alt="" />
+                <h2>{e.name}</h2>
+                <p className="details">
+                  <span className={e.type ? "vendor" : "customer"}>
+                    {e.type ? "VENDOR" : "CUSTOMER"}
+                  </span>
+                </p>
+              </div>
+              <p className="about">{e.message}</p>
             </div>
-            <p className="about">{e.message}</p>
-            {console.log(e.message)}
-          </div>
-        ))}
+          ))}
         <div className="card">
           <div className="test">
             <img src={temi} alt="Temi" />

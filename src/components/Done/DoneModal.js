@@ -7,6 +7,12 @@ import cone from "../imgs/cone.png";
 const DoneModal = () => {
   const { done, setDone } = useContext(AuthContext);
 
+  const reload = () => {
+    setDone(false);
+
+    window.location.reload();
+  };
+
   return (
     <Container done={done}>
       <div className="container">
@@ -19,7 +25,7 @@ const DoneModal = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <div className="btn">
-          <Finish onClick={() => setDone(false)}>Close</Finish>
+          <Finish onClick={reload}>Close</Finish>
         </div>
       </div>
     </Container>
